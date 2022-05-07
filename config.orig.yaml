@@ -30,7 +30,7 @@ lighthouse:
     # lighthouse nodes here, one per line, in the following
     # format:
     #
-    - "<host_ip>"
+    "<host_ip>"
 
 listen:
   # 0.0.0.0 means "all interfaces," which is probably what you want
