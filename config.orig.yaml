@@ -1,0 +1,65 @@
+# This is Ars Technica's sample Nebula config file for non-lighthouse nodes.
+#
+
+pki:
+  # every node needs a copy of the CA certificate,
+  # and its own certificate and key, ONLY.
+  #
+  ca: <public_key_house>
+  cert: <cert_path>
+  key: <key_path>
+
+static_host_map:
+ # how to find one or more lighthouse nodes
+ # you do NOT need every node to be listed here!
+ #
+ # format "Nebula IP": ["public IP or hostname:port"]
+ # 
+ "<vpn_ip>": ["<public_ip_lighthouse>:<lighthouse_port>"]
+
+lighthouse:
+  interval: 60
+
+  # if you're a lighthouse, say you're a lighthouse
+  #
+  am_lighthouse: <i_am_lighthouse>
+
+  hosts:
+    # If you're a lighthouse, this section should be EMPTY
+    # or commented out. If you're NOT a lighthouse, list 
+    # lighthouse nodes here, one per line, in the following
+    # format:
+    #
+    - "<host_ip>"
+
+listen:
+  # 0.0.0.0 means "all interfaces," which is probably what you want
+  #
+  host: 0.0.0.0
+  port: 4242
+
+# "punchy" basically means "send frequent keepalive packets"
+# so that your router won't expire and close your NAT tunnels.
+#
+punchy: true
+
+# "punch_back" allows the other node to try punching out to you,
+# if you're having trouble punching out to it. Useful for stubborn
+# networks with symmetric NAT, etc.
+#
+punch_back: true
+
+tun:
+  # sensible defaults. don't monkey with these unless
+  # you're CERTAIN you know what you're doing.
+  #
+  dev: <network_name>
+  drop_local_broadcast: false
+  drop_multicast: false
+  tx_queue: 500
+  mtu: 1300
+  routes:
+
+logging:
+  level: info
+  format: text
