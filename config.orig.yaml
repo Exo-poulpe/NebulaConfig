@@ -63,3 +63,23 @@ tun:
 logging:
   level: info
   format: text
+
+firewall:
+  conntrack:
+    tcp_timeout: 120h
+    udp_timeout: 3m
+    default_timeout: 10m
+    max_connections: 100000
+
+# since everything is default deny, all rules you
+# actually SPECIFY here are allow rules.
+#
+  outbound:
+    - port: any
+      proto: any
+      host: any
+
+  inbound:
+    - port: any
+      proto: any
+      host: any
