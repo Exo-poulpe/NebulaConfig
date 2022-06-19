@@ -77,9 +77,11 @@ firewall:
   outbound:
     - port: any
       proto: any
-      host: any
+      groups:
+        <groups>
 
   inbound:
     - port: any
       proto: any
-      host: any
+      groups:
+        <groups>
