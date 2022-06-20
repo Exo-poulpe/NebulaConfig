@@ -8,6 +8,8 @@ pki:
   ca: <public_key_house>
   cert: <cert_path>
   key: <key_path>
+  blocklist:
+  
 
 static_host_map:
  # how to find one or more lighthouse nodes
